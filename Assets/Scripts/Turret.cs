@@ -96,7 +96,7 @@ public class Turret : MonoBehaviour
         if (enemies.Count < 1)
             return;
 
-        if (enemies.Count == 1)
+        if (enemies.Count == 1) 
         {
             trackedEnemy = enemies[0];
             return;
