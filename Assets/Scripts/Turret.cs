@@ -29,7 +29,7 @@ public class Turret : MonoBehaviour
     [Tooltip("Only draw the Gizmos when the Turret is selected")]
     public bool drawGizmosOnlyWhenSelected = true;
     
-    private EnemyBase trackedEnemy;
+    protected EnemyBase trackedEnemy;
     private float timeToFire = 0;
     private Animator anim;
     
@@ -66,19 +66,24 @@ public class Turret : MonoBehaviour
         
         if (timeToFire <= 0 && Vector3.Distance(oldEuler, transform.eulerAngles) < rotationSpeed * 0.75)
         {
-            timeToFire = 1 / fireRate;
-            trackedEnemy.TakeDamage(damagePerShot);
+            Shoot();
+        }
+    }
+
+    protected virtual void Shoot()
+    {
+        timeToFire = 1 / fireRate;
+        trackedEnemy.TakeDamage(damagePerShot);
             
-            if (shootParticles)
-                shootParticles.Play(true);
-            if (anim)
-                anim.SetTrigger(animatorTrigger);
+        if (shootParticles)
+            shootParticles.Play(true);
+        if (anim)
+            anim.SetTrigger(animatorTrigger);
             
-            if (isFlamed)
-            {
-                flamer.SetActive(true);
-                fire.StartEffect();
-            }
+        if (isFlamed)
+        {
+            flamer.SetActive(true);
+            fire.StartEffect();
         }
     }
     
