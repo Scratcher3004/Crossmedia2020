@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5594993021146486551}
   - component: {fileID: 6578649834714449868}
   - component: {fileID: 383318669599718558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: uenpfeifa__LOD4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7714306242517882322}
   - component: {fileID: 5978457135994985414}
-  m_Layer: 0
+  - component: {fileID: 2116209590}
+  m_Layer: 8
   m_Name: Campfire_uenpfeifa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +171,22 @@ LODGroup:
     renderers:
     - renderer: {fileID: 8109712326924037802}
   m_Enabled: 1
+--- !u!208 &2116209590
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086093986745728290}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1360908995582199331
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +199,7 @@ GameObject:
   - component: {fileID: 4755417907928320998}
   - component: {fileID: 7891179209473258162}
   - component: {fileID: 3731378142487265090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: uenpfeifa__LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +293,7 @@ GameObject:
   - component: {fileID: 5876550557666718022}
   - component: {fileID: 4524098790385573343}
   - component: {fileID: 7897542443548895990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: uenpfeifa__LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +387,7 @@ GameObject:
   - component: {fileID: 8754572588995621141}
   - component: {fileID: 18217090482539722}
   - component: {fileID: 7859458803669172362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: uenpfeifa__LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +481,7 @@ GameObject:
   - component: {fileID: 4071010516482962255}
   - component: {fileID: 8109712326924037802}
   - component: {fileID: 3297846158337823143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: uenpfeifa__LOD5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +575,7 @@ GameObject:
   - component: {fileID: 5147910279091374571}
   - component: {fileID: 7069219162331418612}
   - component: {fileID: 9075023016772761246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: uenpfeifa__LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

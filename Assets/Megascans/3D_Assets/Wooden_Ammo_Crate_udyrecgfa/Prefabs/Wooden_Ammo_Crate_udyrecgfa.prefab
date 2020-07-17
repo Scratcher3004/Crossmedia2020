@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7405697076383010658}
   - component: {fileID: 7355084151260904337}
   - component: {fileID: 4972818014397867582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: udyrecgfa__LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 894930926375168049}
   - component: {fileID: 6975704637540330381}
   - component: {fileID: 7307643587925917788}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: udyrecgfa__LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 6900661426485545483}
   - component: {fileID: 1994848566701159458}
   - component: {fileID: 4127597324843845589}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: udyrecgfa__LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6844979438816869440}
   - component: {fileID: 745574442111729226}
-  m_Layer: 0
+  - component: {fileID: 857838641}
+  m_Layer: 8
   m_Name: Wooden_Ammo_Crate_udyrecgfa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,6 +359,22 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6893104252204530377}
   m_Enabled: 1
+--- !u!208 &857838641
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000909037668636655}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.175, y: 0.1, z: 1.02}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0.11, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4253511872737326944
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +387,7 @@ GameObject:
   - component: {fileID: 69116736773516039}
   - component: {fileID: 6893104252204530377}
   - component: {fileID: 8958154947631164840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: udyrecgfa__LOD5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +481,7 @@ GameObject:
   - component: {fileID: 7403284496720708692}
   - component: {fileID: 2132884564286598699}
   - component: {fileID: 8755628777861109243}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: udyrecgfa__LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +575,7 @@ GameObject:
   - component: {fileID: 4939930301380655154}
   - component: {fileID: 9097124393713873529}
   - component: {fileID: 5306279250262649651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: udyrecgfa__LOD4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,6 +11,8 @@ public class Flamer : MonoBehaviour
     public float burnTime = 4;
     [Tooltip("How long should the burner stay active")]
     public float burnerDuration = 1.5f;
+    [Tooltip("Inverts the effect - Removes burning")]
+    public bool cool = false;
     
     public void SetActive(bool Value)
     {
@@ -28,8 +30,16 @@ public class Flamer : MonoBehaviour
     {
         if (active)
         {
-            if (coll.transform.GetComponent<Damageable>())
-                coll.transform.GetComponent<Damageable>().Flame(burnTime);
+            if (cool)
+            {
+                if (coll.transform.GetComponent<Damageable>())
+                    coll.transform.GetComponent<Damageable>().Cool(burnTime);
+            }
+            else
+            {
+                if (coll.transform.GetComponent<Damageable>())
+                    coll.transform.GetComponent<Damageable>().Flame(burnTime);
+            }
         }
     }
 }

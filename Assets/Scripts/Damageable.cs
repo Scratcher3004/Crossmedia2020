@@ -9,7 +9,11 @@ public abstract class Damageable : MonoBehaviour
     public float maxHealth = 100;
     public float flameDamageMultiplier = 5;
     public float flameDurationMultiplier = 1;
+    public GameObject deathParticles;
+    public Vector3 deathParticlesOffset;
     protected float flameDuration;
+    protected float coolDuration;
+    public float waterDamage = 0;
     public float GetCurrentHealth => health;
 
     protected virtual void Awake()
@@ -32,6 +36,19 @@ public abstract class Damageable : MonoBehaviour
                 flameDuration = 0;
             }
         }
+        else if (coolDuration > 0)
+        {
+            coolDuration -= Time.deltaTime;
+
+            if (coolDuration < 0)
+            {
+                coolDuration = 0;
+            }
+            else
+            {
+                TakeDamage(waterDamage*Time.deltaTime);
+            }
+        }
     }
 
     public void TakeDamage(float Value)
@@ -40,6 +57,11 @@ public abstract class Damageable : MonoBehaviour
 
         if (health <= 0)
         {
+            if (deathParticles)
+            {
+                var ins = Instantiate(deathParticles, transform.position + deathParticlesOffset, Quaternion.identity);
+                Destroy(ins, ins.GetComponent<ParticleSystem>().main.duration);
+            }
             OnDeath();
         }
     }
@@ -47,7 +69,19 @@ public abstract class Damageable : MonoBehaviour
     public void Flame(float Time)
     {
         if (flameDuration < Time)
+        {
             flameDuration = Time;
+        }
+        coolDuration = 0;
+    }
+
+    public void Cool(float duration)
+    {
+        if (coolDuration < duration)
+        {
+            coolDuration = duration;
+        }
+        flameDuration = 0;
     }
 
     protected abstract void OnDeath();

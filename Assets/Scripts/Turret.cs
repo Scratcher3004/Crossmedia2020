@@ -16,6 +16,8 @@ public class Turret : MonoBehaviour
     public Transform tower;
     public Transform firePoint;
     public ParticleSystem shootParticles;
+    [Tooltip("Leave blank for no animation")]
+    public string animatorTrigger;
     
     [Header("Flamethrower")]
     public bool isFlamed = false;
@@ -29,13 +31,16 @@ public class Turret : MonoBehaviour
     
     private EnemyBase trackedEnemy;
     private float timeToFire = 0;
+    private Animator anim;
     
     void Start()
     {
-        
+        if (animatorTrigger != string.Empty)
+        {
+            anim = GetComponent<Animator>();
+        }
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (timeToFire > 0)
@@ -65,8 +70,10 @@ public class Turret : MonoBehaviour
             trackedEnemy.TakeDamage(damagePerShot);
             
             if (shootParticles)
-                shootParticles.Play();
-        
+                shootParticles.Play(true);
+            if (anim)
+                anim.SetTrigger(animatorTrigger);
+            
             if (isFlamed)
             {
                 flamer.SetActive(true);
@@ -108,7 +115,7 @@ public class Turret : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (drawGizmosOnlyWhenSelected)
+        if (drawGizmosOnlyWhenSelected || tower == null)
             return;
         
         DrawGizmos();
@@ -116,7 +123,7 @@ public class Turret : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (!drawGizmosOnlyWhenSelected)
+        if (!drawGizmosOnlyWhenSelected || tower == null)
             return;
 
         DrawGizmos();

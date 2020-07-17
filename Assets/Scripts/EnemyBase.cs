@@ -7,6 +7,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBase : Damageable
 {
+    public float cooledSpeed = 1;
+
     [Header("Attack")]
     public bool dieOnAttack = false;
     public float damageOnAttack = 5;
@@ -17,11 +19,13 @@ public class EnemyBase : Damageable
     
     private NavMeshAgent agent;
     private float attackTimeLeft = 0;
+    private float defaultSpeed;
     
     protected override void Awake()
     {
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
+        defaultSpeed = agent.speed;
     }
 
     private void Start()
@@ -33,6 +37,15 @@ public class EnemyBase : Damageable
     {
         if (!enabled)
             return;
+        
+        if (coolDuration > 0)
+        {
+            agent.speed = cooledSpeed;
+        }
+        else
+        {
+            agent.speed = defaultSpeed;
+        }
         
         base.Update();
         
