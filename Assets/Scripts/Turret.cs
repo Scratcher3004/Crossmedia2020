@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Health;
 using DigitalRuby.PyroParticles;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class Turret : MonoBehaviour
     public float rotationSpeed = 360;
     public float towerYOffset = 0;
     public Transform tower;
-    public Transform firePoint;
+    //public Transform firePoint;
     public ParticleSystem shootParticles;
     [Tooltip("Leave blank for no animation")]
     public string animatorTrigger;

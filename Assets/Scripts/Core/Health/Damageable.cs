@@ -194,30 +194,23 @@ namespace Core.Health
 		/// </summary>
 		/// <param name="healthIncrement">Health increment.</param>
 		/// <param name="info">HealthChangeInfo for this change</param>
-		protected void ChangeHealth(float healthIncrement, HealthChangeInfo info)
+        public void ChangeHealth(float healthIncrement, HealthChangeInfo info)
 		{
 			info.oldHealth = currentHealth;
 			currentHealth += healthIncrement;
 			currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 			info.newHealth = currentHealth;
-			
-			if (healthChanged != null)
-			{
-				healthChanged(info);
-			}
-		}
+            healthChanged?.Invoke(info);
+        }
 
 		/// <summary>
 		/// A helper method for null checking actions
 		/// </summary>
 		/// <param name="action">Action to be done</param>
-		protected void SafelyDoAction(Action action)
-		{
-			if (action != null)
-			{
-				action();
-			}
-		}
+        protected void SafelyDoAction(Action action)
+        {
+            action?.Invoke();
+        }
 
 		/// <summary>
 		/// A helper method for null checking actions
@@ -225,11 +218,29 @@ namespace Core.Health
 		/// <param name="action">Action to be done</param>
 		/// <param name="info">The HealthChangeInfo to be passed to the Action</param>
 		protected void SafelyDoAction(Action<HealthChangeInfo> action, HealthChangeInfo info)
-		{
-			if (action != null)
-			{
-				action(info);
-			}
-		}
-	}
+        {
+            action?.Invoke(info);
+        }
+
+        public void SafelyDoAction(string action, HealthChangeInfo output)
+        {
+            switch (action)
+            {
+                case "died":
+                    SafelyDoAction(died, output);
+                    break;
+                case "damaged":
+                    SafelyDoAction(damaged, output);
+                    break;
+                case "healed":
+                    SafelyDoAction(healed, output);
+                    break;
+                case "healthChanged":
+                    SafelyDoAction(healthChanged, output);
+                    break;
+                default:
+                    throw new ArgumentException("Not supported parameter given!");
+            }
+        }
+    }
 }

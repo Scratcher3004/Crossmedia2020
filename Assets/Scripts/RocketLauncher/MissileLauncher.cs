@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ActionGameFramework.Health;
 using UnityEngine;
 
 namespace RocketLauncher
@@ -8,6 +9,7 @@ namespace RocketLauncher
     {
         public MissileBattery[] batteries;
         public bool shootAllBatteriesAtOnce = false;
+        public bool attackDifferentEnemies = true;
         
         protected override void Shoot()
         {
@@ -20,7 +22,7 @@ namespace RocketLauncher
                     var c = cloned[Random.Range(0, cloned.Count - 1)];
                     if (c.Loaded)
                     {
-                        c.Shoot(trackedEnemy.transform);
+                        Shoot(c);
                         break;
                     }
                     cloned.Remove(c);
@@ -30,9 +32,28 @@ namespace RocketLauncher
             {
                 foreach (var mb in batteries)
                 {
-                    if (mb.Loaded)
-                        mb.Shoot(trackedEnemy.transform);
+                    Shoot(mb);
                 }
+            }
+        }
+
+        private void Shoot(MissileBattery mb)
+        {
+            if (!mb.Loaded)
+                return;
+
+            if (!attackDifferentEnemies)
+                mb.Shoot(new EnemyBase[]{ trackedEnemy });
+            else
+            {
+                var enemies = FindObjectsOfType<EnemyBase>().ToList();
+
+                enemies.RemoveAll(a => Vector3.Distance(a.transform.position, tower.position) > range);
+        
+                if (enemies.Count < 1)
+                    return;
+                
+                mb.Shoot(enemies.ToArray());
             }
         }
     }

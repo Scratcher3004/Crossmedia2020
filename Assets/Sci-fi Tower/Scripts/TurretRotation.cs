@@ -3,14 +3,14 @@
 public class TurretRotation : MonoBehaviour
 {
 	[SerializeField]
-	private RotationData yAxisRotation;
+	private RotationData yAxisRotation = new RotationData();
 	[SerializeField]
-	private RotationData xAxisRotation;
+	private RotationData xAxisRotation = new RotationData();
 	[SerializeField]
 	[Range( 0, 180f )]
-	private float yAngleToTargetToStartXRotation;
+	private float yAngleToTargetToStartXRotation = 0;
 	[SerializeField]
-	private Transform target;
+	private Transform target = null;
 	//[SerializeField]
 	//[Range( 0f, 360f )]
 	//private float rocketsHolderMinAngle;
@@ -26,8 +26,7 @@ public class TurretRotation : MonoBehaviour
 
 	public bool xPointingActive;
 	// Update is called once per frame
-	float currentVelocity = 0;
-	void Update( )
+    void Update( )
 	{
 		if( target != null )
 		{
@@ -82,16 +81,16 @@ public class TurretRotation : MonoBehaviour
 #if UNITY_EDITOR
 	[Header( "Editor variables" )]
 	[SerializeField]
-	private bool drawGizmos_EDITOR;
+	private bool drawGizmos_EDITOR = false;
 	[SerializeField]
-	private Color gizmosColor;
+	private Color gizmosColor = Color.gray;
 	[SerializeField]
 	private float gizmosSphereRadius = 1f;
 
 	//[SerializeField]
 	//private Color rocketsHolderRotationRangeLinesColor;
 	[SerializeField]
-	private Color angleZoneGizmosColor;
+	private Color angleZoneGizmosColor = Color.green;
 	[SerializeField]
 	private float angleZoneGizmosLineWidth = 1f;
 

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 7215773691136588520, guid: ea8dd35745500b14eb0e95af1d065014, type: 3}
-  reloadTime: 1
+  reloadTime: 3
 --- !u!1 &387391867940505809
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 7215773691136588520, guid: ea8dd35745500b14eb0e95af1d065014, type: 3}
-  reloadTime: 1
+  reloadTime: 3
 --- !u!1 &1035062819077593923
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  fireRate: 1.5
+  fireRate: 0.5
   damagePerShot: 1
   rotationSpeed: 360
   towerYOffset: 0
@@ -2154,7 +2154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 7215773691136588520, guid: ea8dd35745500b14eb0e95af1d065014, type: 3}
-  reloadTime: 1
+  reloadTime: 3
 --- !u!1 &8694826754369512833
 GameObject:
   m_ObjectHideFlags: 0
