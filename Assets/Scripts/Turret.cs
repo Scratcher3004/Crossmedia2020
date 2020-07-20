@@ -67,20 +67,18 @@ public class Turret : MonoBehaviour
         
         if (timeToFire <= 0 && Vector3.Distance(oldEuler, transform.eulerAngles) < rotationSpeed * 0.75)
         {
+            timeToFire = 1 / fireRate;
+            if (shootParticles)
+                shootParticles.Play(true);
+            if (anim)
+                anim.SetTrigger(animatorTrigger);
             Shoot();
         }
     }
 
     protected virtual void Shoot()
     {
-        timeToFire = 1 / fireRate;
         trackedEnemy.TakeDamage(damagePerShot);
-            
-        if (shootParticles)
-            shootParticles.Play(true);
-        if (anim)
-            anim.SetTrigger(animatorTrigger);
-            
         if (isFlamed)
         {
             flamer.SetActive(true);

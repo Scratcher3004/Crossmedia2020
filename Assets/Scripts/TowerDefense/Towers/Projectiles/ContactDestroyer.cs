@@ -13,6 +13,9 @@ namespace TowerDefense.Towers.Projectiles
 		/// </summary>
 		public float yDestroyPoint = -50;
 
+        [Tooltip("Optional particles to play when object collides.")]
+        public GameObject particles;
+        
 		/// <summary>
 		/// The attached collider
 		/// </summary>
@@ -52,6 +55,10 @@ namespace TowerDefense.Towers.Projectiles
 				return;
 			}
 			Poolable.TryPool(gameObject);
-		}
+
+            if (!particles) return;
+            var transform1 = transform;
+            Instantiate(particles, transform1.position, transform1.rotation);
+        }
 	}
 }
