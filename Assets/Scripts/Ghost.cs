@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,10 @@ public class Ghost : MonoBehaviour
     public Color error = new Color(1, 0, 0, 0.5f);
     public Vector3 size = new Vector3(1.5f, 1.5f, 1.5f);
     public LayerMask placedLayer = 0x100;
+
+    [Header("Debug")]
+    public bool drawGizmos;
+    public bool drawGizmosOnlyWhenSelected;
     
     private Renderer[] renderers;
     private Material shared;
@@ -30,4 +35,24 @@ public class Ghost : MonoBehaviour
     
     public bool IsPlaceable => !Physics.CheckBox(transform.position + new Vector3(0, size.y / 2, 0), size / 2, Quaternion.identity,
         placedLayer);
+
+    private void OnDrawGizmos()
+    {
+        if (drawGizmosOnlyWhenSelected)
+            return;
+        DrawGizmos();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (!drawGizmosOnlyWhenSelected)
+            return;
+        DrawGizmos();
+    }
+
+    private void DrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position + new Vector3(0, size.y / 2, 0), size);
+    }
 }

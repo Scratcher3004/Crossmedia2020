@@ -82,7 +82,7 @@ namespace ActionGameFramework.Projectiles
 
 		protected override void Fire(Vector3 firingVector)
 		{
-			if (m_HomingTarget == null)
+			if (!m_HomingTarget)
 			{
 				Debug.LogError("Homing target has not been specified. Aborting fire.");
 				return;
