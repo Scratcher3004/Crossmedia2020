@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1103966731}
   - component: {fileID: 1103966732}
   - component: {fileID: 5696768947854598503}
+  - component: {fileID: 4073699899442882171}
   m_Layer: 9
   m_Name: PaperPlane
   m_TagString: Untagged
@@ -96,6 +97,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 1.6, z: 0.2}
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &4073699899442882171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055287688101438610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ee3552450366446a63099f769f8d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 1
 --- !u!1001 &2055287687362048573
 PrefabInstance:
   m_ObjectHideFlags: 0

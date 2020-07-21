@@ -32,13 +32,13 @@ public class Flamer : MonoBehaviour
         {
             if (cool)
             {
-                if (coll.transform.GetComponent<Damageable>())
-                    coll.transform.GetComponent<Damageable>().Cool(burnTime);
+                if (coll.transform.GetComponent<EnemyBase>())
+                    coll.transform.GetComponent<EnemyBase>().Cool(burnTime);
             }
             else
             {
-                if (coll.transform.GetComponent<Damageable>())
-                    coll.transform.GetComponent<Damageable>().Flame(burnTime);
+                if (coll.transform.GetComponent<EnemyBase>())
+                    coll.transform.GetComponent<EnemyBase>().Flame(burnTime);
             }
         }
     }
