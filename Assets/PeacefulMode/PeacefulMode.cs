@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PeacefulMode
@@ -9,11 +10,11 @@ namespace PeacefulMode
         public bool overrideDisablePeaceful = false;
         public bool disablePeacefulOverride = true;
         
-        public List<GameObjectSwapInfo> swap = new List<GameObjectSwapInfo>();
+        public List<GameObjectSwapInfo> swaps = new List<GameObjectSwapInfo>();
 
         public static PeacefulMode singleton;
         
-        void Start()
+        void Awake()
         {
             if (singleton != null)
             {
@@ -33,11 +34,19 @@ namespace PeacefulMode
             Debug.Log("Enabled Peaceful Mode!");
         }
 
-        public static void NormalToPeaceful(GameObject original)
+        public static GameObject NormalToPeacefulStatic(GameObject original)
         {
-            
-            
-            //var swapped = 
+            return singleton.NormalToPeaceful(original);
+        }
+        
+        public GameObject NormalToPeaceful(GameObject original)
+        {
+            // PeacefulMode is disabled
+            if (!enabled)
+                return original;
+
+            var swapped = swaps.First(a => a.@from == original).to;
+            return swapped ? swapped : original;
         }
     }
 }
