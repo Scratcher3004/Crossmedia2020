@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+using static PeacefulMode.PeacefulMode;
+
 public class TurretPlacer : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public GameObject ghostPrefab;
@@ -62,7 +64,7 @@ public class TurretPlacer : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             return;
         }
         CurrencyManager.instance.Purchase(cost);
-        Instantiate(turretPrefab, ghostGo.transform.position, quaternion.identity);
+        Instantiate(NormalToPeacefulStatic(turretPrefab), ghostGo.transform.position, quaternion.identity);
         ghostGo.SetActive(false);
     }
     

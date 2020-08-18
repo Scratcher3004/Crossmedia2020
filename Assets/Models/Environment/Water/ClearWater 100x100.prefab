@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4717522050483488835}
   - component: {fileID: 2923475737233475370}
   - component: {fileID: 268319719044990471}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: ClearWater 100x100
   m_TagString: Untagged
   m_Icon: {fileID: 0}

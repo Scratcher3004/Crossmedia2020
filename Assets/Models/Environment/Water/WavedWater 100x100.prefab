@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2258944656958863008}
   - component: {fileID: 8553222777491880393}
   - component: {fileID: 6744175771876620516}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WavedWater 100x100
   m_TagString: Untagged
   m_Icon: {fileID: 0}

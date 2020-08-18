@@ -340,9 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36ae2c5e818ee048bcf15e3b99d6da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overrideDisablePeaceful: 0
+  overrideDisablePeaceful: 1
   disablePeacefulOverride: 1
-  swap: []
+  swaps:
+  - from: {fileID: 5921180195749237336, guid: 979332a32923c494c9f57dfa4457d638, type: 3}
+    to: {fileID: 5765628025624797544, guid: 32ef35939997bfb4a833e0546856198e, type: 3}
 --- !u!1 &250409302
 GameObject:
   m_ObjectHideFlags: 0

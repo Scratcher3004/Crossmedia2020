@@ -18,8 +18,8 @@ TagManager:
   - Placeable
   - Enemy
   - Flamer
-  - 
-  - 
+  - ClothOnlyCollision
+  - Ship
   - 
   - 
   - 
