@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6205724538997983820}
   - component: {fileID: 3117668698780430458}
   - component: {fileID: 8680871086753221763}
-  m_Layer: 0
+  - component: {fileID: 670301498}
+  m_Layer: 8
   m_Name: Olive 6m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6936792807163082847}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -18.33, y: 0.01, z: -2.72}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!33 &3117668698780430458
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -58,11 +59,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2195845966715039315, guid: c9e13f92376d7224ab2bddd9b3e6099f, type: 3}
-  - {fileID: -6323170712082759436, guid: c9e13f92376d7224ab2bddd9b3e6099f, type: 3}
-  - {fileID: 8738221684321641521, guid: c9e13f92376d7224ab2bddd9b3e6099f, type: 3}
-  - {fileID: -368530396209831638, guid: c9e13f92376d7224ab2bddd9b3e6099f, type: 3}
-  - {fileID: 184908187559772860, guid: c9e13f92376d7224ab2bddd9b3e6099f, type: 3}
+  - {fileID: 2100000, guid: 949baaefc19ac894aa9108b6d9cfc64d, type: 2}
+  - {fileID: 2100000, guid: 0b028e23ded61294ba93cbb07647a626, type: 2}
+  - {fileID: 2100000, guid: add0a69fa3dde414aa96c3116de8d558, type: 2}
+  - {fileID: 2100000, guid: add0a69fa3dde414aa96c3116de8d558, type: 2}
+  - {fileID: 2100000, guid: 949baaefc19ac894aa9108b6d9cfc64d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &670301498
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6936792807163082847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -809143650535996401, guid: c9e13f92376d7224ab2bddd9b3e6099f, type: 3}
