@@ -17,10 +17,14 @@ public class EnemyBase : Targetable
     [Header("Attack")]
     public bool dieOnAttack = false;
     public float damageOnAttack = 5;
+    public float AttackRange = .15f;
     [Tooltip("How often to attack per second. Only will be used if die on attack is set to false. Use numbers less than one to set the attack rate below zero.")]
     public float attackRate = 1;
     [Tooltip("Will multiply the damage with the given value if the enemy burns. Set to 1 to disable extra damage.")]
     public float burnMultiplier = 2;
+    public bool burnAttacked = false;
+    public bool forceBurn = false;
+    public float attackFlameTime = 5f;
     
     private NavMeshAgent agent;
     private float attackTimeLeft = 0;
@@ -42,6 +46,12 @@ public class EnemyBase : Targetable
 
     protected virtual void Update()
     {
+        var pos = transform.position;
+        if (pos.x > 1000 || pos.x < -1000 || pos.y > 1000 || pos.y < -1000 || pos.z > 1000 || pos.z < -1000)
+        {
+            Kill();
+        }
+        
         if (isDead)
         {
             OnDeath();
@@ -76,12 +86,16 @@ public class EnemyBase : Targetable
             }
         }
         agent.speed = coolDuration > 0 ? cooledSpeed : defaultSpeed;
-        if (!agent.isOnNavMesh || Vector3.Distance(transform.position, Destination.singleton.transform.position) > 0.15)
+        if (!agent.isOnNavMesh || Vector3.Distance(transform.position, Destination.singleton.transform.position) > AttackRange)
             return;
 
         if (attackTimeLeft <= 0)
         {
             Destination.singleton.TakeDamage(flameDuration > 0 ? burnMultiplier * damageOnAttack : damageOnAttack);
+            if (burnAttacked && flameDuration > 0 || burnAttacked && forceBurn)
+            {
+                Destination.singleton.Flame(attackFlameTime);
+            }
 
             if (dieOnAttack)
             {

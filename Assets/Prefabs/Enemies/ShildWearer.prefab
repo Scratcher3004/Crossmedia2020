@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4453387158974249556}
   - component: {fileID: 1205163866796202499}
   m_Layer: 9
-  m_Name: Test
+  m_Name: ShildWearer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -70,20 +70,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   configuration:
-    maxHealth: 5
-    startingHealth: 5
+    maxHealth: 20
+    startingHealth: 20
     alignment:
       unityObjectReference: {fileID: 11400000, guid: 5f97aca4faead5a4ead40919778e9873,
         type: 2}
   targetTransform: {fileID: 0}
   cooledSpeed: 1
-  burnTimeMultiplier: 1
+  burnTimeMultiplier: 0.1
   burnDamageMultiplier: 1
-  waterDamage: 1
+  waterDamage: 0
   dieOnAttack: 0
   damageOnAttack: 2
   AttackRange: 0.55
-  attackRate: 1
+  attackRate: 0.5
   burnMultiplier: 2
   burnAttacked: 0
   forceBurn: 0
@@ -172,7 +172,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0aeb6cb05f31d6343862a247f5598f3c, type: 2}
+  - {fileID: 2100000, guid: a17f15603ae49044b96fcd6a5d9e190c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
